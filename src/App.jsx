@@ -14,7 +14,7 @@ const App = () => {
             .then((data) => setChartData(data))
             .catch((error) => console.error('Error', error));
     }, []);
-
+//Task 5
     if (!chartData) {
         return <p>Loading...</p>;
     }
