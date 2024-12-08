@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+//Task 4
 
-function App() {
-  const [count, setCount] = useState(0)
+import React, { useEffect, useState } from 'react';
+import BarChart from './ChartComponents/BarChart';
+import BubbleChart from './ChartComponents/BubbleChart';
+import LineChart from './ChartComponents/LineChart';
+import ScatterChart from './ChartComponents/ScatterChart';
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+const App = () => {
+    const [chartData, setChartData] = useState(null);
+    useEffect(() => {
+        fetch('/financial_data.json')
+            .then((response) => response.json())
+            .then((data) => setChartData(data))
+            .catch((error) => console.error('Error', error));
+    }, []);
 
-export default App
+    if (!chartData) {
+        return <p>Loading...</p>;
+    }
+
+    return (
+        <div>
+          <center>
+            <h1>Financial Dashboard</h1>
+            </center>
+            <BarChart data={chartData} />
+            <LineChart data={chartData} />
+            <ScatterChart data={chartData} />
+            <BubbleChart data={chartData} />
+        </div>
+    );
+};
+
+export default App;

@@ -2,7 +2,7 @@
 import React from "react";
 import ChartComponent from "./ChartComponents";
 const ScatterChart = ({data}) => {
-    const cData = {
+    const chartData = {
         datasets: [
             {
                 label: "Profits vs Expenses",
@@ -13,7 +13,7 @@ const ScatterChart = ({data}) => {
                     borderColor: "rgba(0, 0, 0, 0.8))"   
          })
         )}]};
-    return <ChartComponent type="scatter" data={cData}/>;
+    return <ChartComponent type="scatter" data={chartData}/>;
 };
 
 export default ScatterChart;

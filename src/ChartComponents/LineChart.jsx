@@ -3,7 +3,7 @@ import React from "react";
 import ChartComponent from "./ChartComponents";
 
 const LineChart = ({data}) => {
-    const cData = {
+    const chartData = {
         labels: data.months,
         datasets: [
             {
@@ -15,7 +15,7 @@ const LineChart = ({data}) => {
         ],
     };
 
-    return <ChartComponent type="line" data={cData}/>
+    return <ChartComponent type="line" data={chartData}/>
 
 };
 

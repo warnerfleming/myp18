@@ -3,7 +3,7 @@ import React from "react";
 import ChartComponent from "./ChartComponents";
 
 const BarChart = ({data}) => {
-    const cData = {
+    const chartData = {
         labels: data.months,
         datasets: [
             {
@@ -16,7 +16,7 @@ const BarChart = ({data}) => {
         ],
     };
 
-    return <ChartComponent type="bar" data={cData}/>;
+    return <ChartComponent type="bar" data={chartData}/>;
 };
 
 export default BarChart;
