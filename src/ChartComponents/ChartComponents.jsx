@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
-const ChartComp = ({ type, data , options }) => {
+const ChartComponent = ({ type, data , options }) => {
   const chartInstance = useRef(null); 
   const chartRef = useRef(null); 
   
@@ -28,4 +28,4 @@ const ChartComp = ({ type, data , options }) => {
   </canvas>;
 };
 
-export default ChartComp;
+export default ChartComponent;
